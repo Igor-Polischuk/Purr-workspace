@@ -1,0 +1,49 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: country-fragment
+name: 03 Aliases and fragments
+folderId: countries
+url: "{{countries_url}}"
+method: POST
+documentation: |-
+  # 03 Aliases and fragments
+
+  Use aliases to compare two countries while a fragment shares the field selection.
+
+  ## Expected result
+
+  HTTP 200; data has ukraine and poland keys.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query Compare {
+      ukraine: country(code: "UA") {
+        ...CountryCard
+      }
+      poland: country(code: "PL") {
+        ...CountryCard
+      }
+    }
+
+    fragment CountryCard on Country {
+      code
+      name
+      capital
+      languages {
+        name
+      }
+    }
+  variables: "{}"
+  schemaId: schema-countries

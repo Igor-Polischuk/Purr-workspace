@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: start-smoke
+name: 01 First request
+folderId: start
+url: "{{dummyjson_url}}/test"
+method: GET
+documentation: |-
+  # 01 First request
+
+  Start without an environment: workspace defaults are sufficient. Open Docs, then Send. Explore response JSON, headers and timeline. Next visit folders 01 through 05. The secrets and Git labs are optional.
+
+  ## Expected result
+
+  HTTP 200; status is "ok" and method is "GET".
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

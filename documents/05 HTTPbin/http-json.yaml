@@ -1,0 +1,41 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-json
+name: 02 JSON body echo
+folderId: http
+url: "{{httpbin_url}}/post"
+method: POST
+documentation: |-
+  # 02 JSON body echo
+
+  Inspect object, array, number, boolean and null rendering.
+
+  ## Expected result
+
+  HTTP 200; json contains the object you sent.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+body:
+  type: json
+  data: |-
+    {
+      "message": "Hello Purr",
+      "count": 3,
+      "enabled": true,
+      "tags": [
+        "debug",
+        "public"
+      ],
+      "optional": null
+    }
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

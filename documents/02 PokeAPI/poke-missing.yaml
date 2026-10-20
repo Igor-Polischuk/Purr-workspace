@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: poke-missing
+name: 05 Unknown Pokemon expected 404
+folderId: pokemon
+url: "{{pokeapi_url}}/pokemon/purr-does-not-exist"
+method: GET
+documentation: |-
+  # 05 Unknown Pokemon expected 404
+
+  Use this to compare JSON success with a non-JSON error response.
+
+  ## Expected result
+
+  HTTP 404, potentially a plain-text response.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

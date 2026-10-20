@@ -1,0 +1,5 @@
+purr: 2
+id: start
+name: 00 Start here
+description: Guided smoke checks and workspace orientation.
+kind: folder

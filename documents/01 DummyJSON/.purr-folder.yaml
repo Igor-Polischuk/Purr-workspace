@@ -1,0 +1,5 @@
+purr: 2
+id: dummy
+name: 01 DummyJSON
+description: Pagination, search and simulated REST writes.
+kind: folder

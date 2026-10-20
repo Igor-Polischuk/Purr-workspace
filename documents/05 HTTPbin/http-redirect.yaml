@@ -1,0 +1,29 @@
+purr: 2
+settings:
+  followRedirects: true
+  timeoutMs: 20000
+  storeCookies: false
+id: http-redirect
+name: 13 Follow redirect
+folderId: http
+url: "{{httpbin_url}}/redirect/1"
+method: GET
+documentation: |-
+  # 13 Follow redirect
+
+  Inspect the timeline and compare with the next request.
+
+  ## Expected result
+
+  Final HTTP 200 after a redirect.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

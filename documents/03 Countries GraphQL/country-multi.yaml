@@ -1,0 +1,47 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: country-multi
+name: 04 Multiple named operations
+folderId: countries
+url: "{{countries_url}}"
+method: POST
+documentation: |-
+  # 04 Multiple named operations
+
+  Select Continents in the operation selector and send. Then select Languages and send again. Save if you want the new operation to be the canonical default.
+
+  ## Expected result
+
+  HTTP 200; data.continents for Continents, or data.languages after switching operations.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query Continents {
+      continents {
+        code
+        name
+      }
+    }
+
+    query Languages {
+      languages {
+        code
+        name
+        native
+      }
+    }
+  variables: "{}"
+  operation: Languages
+  schemaId: schema-countries

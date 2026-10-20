@@ -1,0 +1,29 @@
+purr: 2
+settings:
+  followRedirects: false
+  timeoutMs: 20000
+  storeCookies: false
+id: http-no-redirect
+name: 14 Stop at redirect
+folderId: http
+url: "{{httpbin_url}}/redirect/1"
+method: GET
+documentation: |-
+  # 14 Stop at redirect
+
+  Follow redirects is disabled in Settings for this request.
+
+  ## Expected result
+
+  HTTP 302 with a Location header.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

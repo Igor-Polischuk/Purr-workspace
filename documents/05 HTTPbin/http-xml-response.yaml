@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-xml-response
+name: 10 XML response
+folderId: http
+url: "{{httpbin_url}}/xml"
+method: GET
+documentation: |-
+  # 10 XML response
+
+  Inspect status, Content-Type and the available response views. This is an intentional protocol/format fixture.
+
+  ## Expected result
+
+  HTTP 200 and an XML body.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

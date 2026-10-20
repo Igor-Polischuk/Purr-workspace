@@ -1,0 +1,53 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: country-detail
+name: 01 Country by code
+folderId: countries
+url: "{{countries_url}}"
+method: POST
+documentation: |-
+  # 01 Country by code
+
+  Inspect the pinned schema, hover a field and try completion. Change country_code or choose Alternate inputs.
+
+  ## Expected result
+
+  HTTP 200; data.country matches the selected code.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query Country($code: ID!) {
+      country(code: $code) {
+        code
+        name
+        native
+        capital
+        emoji
+        currency
+        languages {
+          code
+          name
+        }
+        continent {
+          code
+          name
+        }
+      }
+    }
+  variables: |-
+    {
+      "code": "{{country_code}}"
+    }
+  schemaId: schema-countries

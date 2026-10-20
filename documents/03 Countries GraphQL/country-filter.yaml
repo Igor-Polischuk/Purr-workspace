@@ -1,0 +1,44 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: country-filter
+name: 02 Countries by continent
+folderId: countries
+url: "{{countries_url}}"
+method: POST
+documentation: |-
+  # 02 Countries by continent
+
+  Change continent_code to AF or AS. This example demonstrates a nested GraphQL filter input.
+
+  ## Expected result
+
+  HTTP 200; data.countries contains countries in the selected continent.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query ByContinent($continent: String!) {
+      countries(filter: {continent: {eq: $continent}}) {
+        code
+        name
+        capital
+        emoji
+      }
+    }
+  variables: |-
+    {
+      "continent": "{{continent_code}}"
+    }
+  operation: ByContinent
+  schemaId: schema-countries

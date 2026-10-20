@@ -1,0 +1,38 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-delete
+name: 06 Delete post simulated
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 06 Delete post simulated
+
+  This example demonstrates a scalar mutation result rather than an object selection.
+
+  ## Expected result
+
+  Inspect data.deletePost for the service confirmation string.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    mutation Delete($id: Int!) {
+      deletePost(postId: $id)
+    }
+  variables: |-
+    {
+      "id": 1
+    }
+  schemaId: schema-placeholder

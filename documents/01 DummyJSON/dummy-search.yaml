@@ -1,0 +1,33 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-search
+name: 03 Search products
+folderId: dummy
+url: "{{dummyjson_url}}/products/search"
+method: GET
+documentation: |-
+  # 03 Search products
+
+  The first product ID feeds the selected_product_id dynamic variable used by the next request.
+
+  ## Expected result
+
+  HTTP 200; products contains matching items. Results may change.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: q
+    value: "{{search_term}}"
+  - name: limit
+    value: "{{page_size}}"
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

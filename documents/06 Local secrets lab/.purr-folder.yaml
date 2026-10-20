@@ -1,0 +1,5 @@
+purr: 2
+id: secrets
+name: 06 Local secrets lab
+description: Synthetic credentials only. Values intentionally absent from public files.
+kind: folder

@@ -1,0 +1,22 @@
+purr: 2
+id: env-alternate
+name: Alternate inputs
+description: Optional overrides; all omitted variables use workspace defaults.
+kind: environment
+variables:
+  - id: env-alternate-pokemon
+    name: pokemon
+    kind: static
+    value: bulbasaur
+  - id: env-alternate-country_code
+    name: country_code
+    kind: static
+    value: PL
+  - id: env-alternate-continent_code
+    name: continent_code
+    kind: static
+    value: EU
+  - id: env-alternate-search_term
+    name: search_term
+    kind: static
+    value: laptop

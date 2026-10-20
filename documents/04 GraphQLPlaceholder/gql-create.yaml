@@ -1,0 +1,46 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-create
+name: 04 Create post simulated
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 04 Create post simulated
+
+  This service wraps placeholder data. Treat mutation results as simulated; do not chain a later read of the generated ID.
+
+  ## Expected result
+
+  A data.createPost result with submitted fields; inspect errors if the upstream demo is unavailable.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    mutation Create($post: CreatePostInput!) {
+      createPost(post: $post) {
+        id
+        title
+        body
+      }
+    }
+  variables: |-
+    {
+      "post": {
+        "title": "Purr example",
+        "body": "Synthetic public fixture",
+        "userId": 1
+      }
+    }
+  schemaId: schema-placeholder

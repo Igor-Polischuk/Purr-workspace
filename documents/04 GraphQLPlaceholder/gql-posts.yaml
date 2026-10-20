@@ -1,0 +1,48 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-posts
+name: 03 Posts and comments
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 03 Posts and comments
+
+  Use response search for a comment body and inspect nested arrays.
+
+  ## Expected result
+
+  HTTP 200; data.posts with comments and author.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query Posts($user: Int!) {
+      posts(first: 3, userId: $user) {
+        id
+        title
+        user {
+          name
+        }
+        comments(first: 2) {
+          id
+          body
+        }
+      }
+    }
+  variables: |-
+    {
+      "user": 1
+    }
+  schemaId: schema-placeholder

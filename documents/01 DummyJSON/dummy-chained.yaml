@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-chained
+name: 04 Dynamic product lookup
+folderId: dummy
+url: "{{dummyjson_url}}/products/{{selected_product_id}}"
+method: GET
+documentation: |-
+  # 04 Dynamic product lookup
+
+  Inspect selected_product_id in Variables and its dependency on Search products. Sending this request resolves the source request automatically and caches the ID for 120 seconds. An empty search result intentionally cannot produce an ID.
+
+  ## Expected result
+
+  HTTP 200; details for the first search result.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

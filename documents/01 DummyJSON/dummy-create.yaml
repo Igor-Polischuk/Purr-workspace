@@ -1,0 +1,36 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-create
+name: 05 Create product simulated
+folderId: dummy
+url: "{{dummyjson_url}}/products/add"
+method: POST
+documentation: |-
+  # 05 Create product simulated
+
+  Inspect the JSON body, then send. DummyJSON simulates writes: this product will not become available in later GET requests.
+
+  ## Expected result
+
+  HTTP 201; response includes the submitted title and a generated id.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+body:
+  type: json
+  data: |-
+    {
+      "title": "Purr demo product",
+      "price": 12.5,
+      "description": "Synthetic public workspace fixture"
+    }
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

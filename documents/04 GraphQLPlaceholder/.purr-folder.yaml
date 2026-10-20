@@ -1,0 +1,5 @@
+purr: 2
+id: placeholder
+name: 04 GraphQLPlaceholder
+description: Relations, named operations and simulated mutations.
+kind: folder

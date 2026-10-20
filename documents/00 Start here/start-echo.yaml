@@ -1,0 +1,36 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: start-echo
+name: 02 Variables and query parameters
+folderId: start
+url: "{{echo_url}}/get"
+method: GET
+documentation: |-
+  # 02 Variables and query parameters
+
+  Inspect the Params tab. Enable and disable a parameter, send again and compare response history. Query text includes Unicode and spaces to demonstrate encoding.
+
+  ## Expected result
+
+  HTTP 200; args contains greeting and workspace. The disabled row is absent.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: greeting
+    value: Hello from Purr 👋
+  - name: workspace
+    value: public debug
+  - name: disabled_example
+    value: not sent
+    enabled: false
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

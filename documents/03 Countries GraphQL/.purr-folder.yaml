@@ -1,0 +1,5 @@
+purr: 2
+id: countries
+name: 03 Countries GraphQL
+description: Variables, aliases, fragments, filters and expected failures.
+kind: folder

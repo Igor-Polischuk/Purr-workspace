@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 1000
+  storeCookies: false
+id: http-timeout
+name: 16 Expected timeout
+folderId: http
+url: "{{httpbin_url}}/delay/5"
+method: GET
+documentation: |-
+  # 16 Expected timeout
+
+  Settings intentionally sets timeoutMs to 1000. Network failures can also occur before the timeout.
+
+  ## Expected result
+
+  A client timeout is expected at approximately 1 second, before the requested 5-second delay.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

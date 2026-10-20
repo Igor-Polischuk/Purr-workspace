@@ -1,0 +1,32 @@
+purr: 2
+settings:
+  followRedirects: true
+  timeoutMs: 20000
+  storeCookies: true
+id: http-cookie-set
+name: 17 Set demo cookie
+folderId: http
+url: "{{httpbin_url}}/cookies/set"
+method: GET
+documentation: |-
+  # 17 Set demo cookie
+
+  This request explicitly enables cookie sending and storage. Send it before Read demo cookie. Inspect the workspace cookie jar; the value is a harmless fixture.
+
+  ## Expected result
+
+  After the redirect, the cookies object should contain purr_demo=hello.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: purr_demo
+    value: hello
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: true
+kind: http

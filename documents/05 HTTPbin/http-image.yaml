@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-image
+name: 12 PNG response
+folderId: http
+url: "{{httpbin_url}}/image/png"
+method: GET
+documentation: |-
+  # 12 PNG response
+
+  Inspect status, Content-Type and the available response views. This is an intentional protocol/format fixture.
+
+  ## Expected result
+
+  HTTP 200, image/png content type and PNG bytes.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

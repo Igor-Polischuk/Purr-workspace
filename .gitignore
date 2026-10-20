@@ -1,0 +1,21 @@
+# Local operating-system files
+.DS_Store
+# Local credentials and transfer/recovery material
+*.purrsecrets
+.env
+.env.*
+*.pem
+*.key
+# Local databases and exports; not canonical workspace definitions
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+local-only/
+
+# Purr: local system and editor files
+._*
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

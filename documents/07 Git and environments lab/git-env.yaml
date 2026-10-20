@@ -1,0 +1,35 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: git-env
+name: 03 Environment comparison
+folderId: git
+url: "{{echo_url}}/get"
+method: GET
+documentation: |-
+  # 03 Environment comparison
+
+  Send with no environment, then Larger pages, then Alternate inputs. Compare history; selected environment is local state and is not committed.
+
+  ## Expected result
+
+  HTTP 200; args reflects the current environment overrides.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: page_size
+    value: "{{page_size}}"
+  - name: pokemon
+    value: "{{pokemon}}"
+  - name: country
+    value: "{{country_code}}"
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

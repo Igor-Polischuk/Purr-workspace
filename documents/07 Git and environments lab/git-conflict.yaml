@@ -1,0 +1,33 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: git-conflict
+name: 01 Conflict practice target
+folderId: git
+url: "{{echo_url}}/get"
+method: GET
+documentation: |-
+  # 01 Conflict practice target
+
+  Manual exercise after you create a repository: commit a baseline, make two branches, change the same color parameter to different values and save on each branch. Merge and resolve the conflict using Purr. Stable resource IDs make the diff meaningful. No branches or conflicts have been created for you.
+
+  ## Expected result
+
+  HTTP 200; args contains scenario=base and color=blue.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: scenario
+    value: base
+  - name: color
+    value: blue
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

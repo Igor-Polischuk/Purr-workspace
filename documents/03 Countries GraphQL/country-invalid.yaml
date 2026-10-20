@@ -1,0 +1,38 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: country-invalid
+name: 06 Invalid field expected error
+folderId: countries
+url: "{{countries_url}}"
+method: POST
+documentation: |-
+  # 06 Invalid field expected error
+
+  This deliberately invalid query tests validation and error presentation. Replace the invalid field with name to repair it.
+
+  ## Expected result
+
+  Schema diagnostics flag fieldThatDoesNotExist. If sent, expect GraphQL errors; transport status can vary.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query InvalidField {
+      country(code: "UA") {
+        code
+        fieldThatDoesNotExist
+      }
+    }
+  variables: "{}"
+  schemaId: schema-countries

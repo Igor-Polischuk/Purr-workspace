@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-delete
+name: 07 Delete product simulated
+folderId: dummy
+url: "{{dummyjson_url}}/products/{{product_id}}"
+method: DELETE
+documentation: |-
+  # 07 Delete product simulated
+
+  This is a simulated delete. A later GET still returns the original product.
+
+  ## Expected result
+
+  HTTP 200; isDeleted is true and deletedOn is present.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

@@ -1,0 +1,11 @@
+purr: 2
+id: schema-placeholder
+name: GraphQLPlaceholder public schema
+description: Public introspection snapshot retrieved 2026-10-20. Reload the connection to refresh from the service.
+kind: schema
+endpoint: "{{placeholder_url}}"
+auth:
+  type: none
+source:
+  type: introspection
+pinned: schemas/schema-placeholder.graphql

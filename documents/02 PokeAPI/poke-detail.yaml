@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: poke-detail
+name: 02 Pokemon details
+folderId: pokemon
+url: "{{pokeapi_url}}/pokemon/{{pokemon}}"
+method: GET
+documentation: |-
+  # 02 Pokemon details
+
+  PokeAPI is read-only and requires no authentication. Inspect nested JSON using search and JSONPath. Change pokemon in Variables to bulbasaur or select the Alternate inputs environment.
+
+  ## Expected result
+
+  HTTP 200; name, abilities, sprites and stats fields.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

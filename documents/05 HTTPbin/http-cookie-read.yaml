@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-cookie-read
+name: 18 Read demo cookie
+folderId: http
+url: "{{httpbin_url}}/cookies"
+method: GET
+documentation: |-
+  # 18 Read demo cookie
+
+  Without the setup request, an empty cookies object is valid. Cookies are local state and do not travel with a clone.
+
+  ## Expected result
+
+  HTTP 200; cookies includes purr_demo after Set demo cookie has succeeded.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: true
+kind: http

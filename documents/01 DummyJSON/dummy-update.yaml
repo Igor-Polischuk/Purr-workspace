@@ -1,0 +1,34 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-update
+name: 06 Update product simulated
+folderId: dummy
+url: "{{dummyjson_url}}/products/{{product_id}}"
+method: PATCH
+documentation: |-
+  # 06 Update product simulated
+
+  Edit title and compare responses. This update is simulated and does not persist.
+
+  ## Expected result
+
+  HTTP 200; response reflects the changed title.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+body:
+  type: json
+  data: |-
+    {
+      "title": "Purr updated demo"
+    }
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

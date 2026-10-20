@@ -1,0 +1,5 @@
+purr: 2
+id: http
+name: 05 HTTPbin
+description: HTTP methods, body encodings, status codes, redirects, cookies and response formats.
+kind: folder

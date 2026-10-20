@@ -1,0 +1,35 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-multipart
+name: 04 Multipart text fields
+folderId: http
+url: "{{httpbin_url}}/post"
+method: POST
+documentation: |-
+  # 04 Multipart text fields
+
+  The client generates the multipart boundary. Optionally add a small synthetic file in Body to explore uploads; save the request to include its attachment in the workspace.
+
+  ## Expected result
+
+  HTTP 200; form contains two fields.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+body:
+  type: form-data
+  fields:
+    - name: title
+      value: Purr multipart
+    - name: note
+      value: No file required
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

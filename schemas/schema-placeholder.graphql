@@ -1,0 +1,98 @@
+type User {
+  id: Int!
+  name: String
+  username: String
+  email: String
+  address: Address
+  phone: String
+  website: String
+  company: Company
+  posts(first: Int): [Post]
+  albums(first: Int): [Album]
+  todos(first: Int): [Todo]
+}
+
+type Address {
+  street: String
+  suite: String
+  city: String
+  zipcode: String
+  geo: Geo
+}
+
+type Geo {
+  lat: String
+  lng: String
+}
+
+type Company {
+  name: String
+  catchPhrase: String
+  bs: String
+}
+
+type Post {
+  id: Int!
+  title: String
+  body: String
+  comments(first: Int): [Comment]
+  user: User
+}
+
+type Comment {
+  id: Int!
+  name: String
+  email: String
+  body: String
+  post: Post
+}
+
+type Album {
+  id: Int!
+  title: String
+  photos(first: Int): [Photo]
+  user: User
+}
+
+type Photo {
+  id: Int!
+  title: String
+  url: String
+  thumbnailUrl: String
+  album: Album
+}
+
+type Todo {
+  id: Int!
+  title: String
+  completed: Boolean
+  user: User
+}
+
+input CreatePostInput {
+  title: String!
+  body: String!
+  userId: Int!
+}
+
+input UpdatePostInput {
+  title: String
+  body: String
+  userId: Int
+}
+
+type Query {
+  users(first: Int, userId: Int): [User]
+  userById(id: Int!): User
+  posts(first: Int, postId: Int, userId: Int): [Post]
+  comments(first: Int, commentId: Int, postId: Int): [Comment]
+  albums(first: Int, albumId: Int, userId: Int): [Album]
+  photos(first: Int, photoId: Int, albumId: Int): [Photo]
+  todos(first: Int, todoId: Int, userId: Int): [Todo]
+}
+
+type Mutation {
+  createPost(post: CreatePostInput!): Post
+  updatePost(postId: Int!, post: UpdatePostInput!): Post
+  deletePost(postId: Int!): String
+}

@@ -1,0 +1,5 @@
+purr: 2
+id: git
+name: 07 Git and environments lab
+description: Small deterministic documents for manual branch, diff and merge exercises.
+kind: folder

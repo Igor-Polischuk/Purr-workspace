@@ -1,0 +1,46 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-users
+name: 01 Users and nested posts
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 01 Users and nested posts
+
+  Explore relations with the schema explorer. This API uses Int identifiers, unlike Countries ID codes.
+
+  ## Expected result
+
+  HTTP 200; data.users with nested posts.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query Users($first: Int!) {
+      users(first: $first) {
+        id
+        name
+        username
+        posts(first: 2) {
+          id
+          title
+        }
+      }
+    }
+  variables: |-
+    {
+      "first": 3
+    }
+  schemaId: schema-placeholder

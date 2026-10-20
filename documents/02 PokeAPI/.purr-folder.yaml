@@ -1,0 +1,5 @@
+purr: 2
+id: pokemon
+name: 02 PokeAPI
+description: Read-only nested JSON, paging and reusable variables.
+kind: folder

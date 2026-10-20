@@ -1,0 +1,35 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: dummy-list
+name: 01 List products
+folderId: dummy
+url: "{{dummyjson_url}}/products"
+method: GET
+documentation: |-
+  # 01 List products
+
+  Change page_size or offset in Variables, or choose the Larger pages environment. Avoid limit=0 to keep the example small.
+
+  ## Expected result
+
+  HTTP 200; products array and total, skip, limit fields.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+params:
+  - name: limit
+    value: "{{page_size}}"
+  - name: skip
+    value: "{{offset}}"
+  - name: select
+    value: id,title,price
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

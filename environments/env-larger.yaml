@@ -1,0 +1,14 @@
+purr: 2
+id: env-larger
+name: Larger pages
+description: Optional overrides; all omitted variables use workspace defaults.
+kind: environment
+variables:
+  - id: env-larger-page_size
+    name: page_size
+    kind: static
+    value: "10"
+  - id: env-larger-offset
+    name: offset
+    kind: static
+    value: "5"

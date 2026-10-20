@@ -1,0 +1,78 @@
+purr: 2
+workspace:
+  id: bc6ac784-16ee-4dfa-a015-ff5f904bedba
+  name: Git workspace
+  description: Public Purr debug and learning workspace. Start with 00 Start here and each request’s Docs tab. Includes REST, GraphQL, pinned public schemas, environment overrides, a dynamic request dependency, HTTP behavior and optional local-secret/Git exercises. Only synthetic data; local secret values intentionally absent. See README.md for the guided path.
+  variables:
+    - id: var-dummyjson_url
+      name: dummyjson_url
+      kind: static
+      value: https://dummyjson.com
+    - id: var-pokeapi_url
+      name: pokeapi_url
+      kind: static
+      value: https://pokeapi.co/api/v2
+    - id: var-httpbin_url
+      name: httpbin_url
+      kind: static
+      value: https://httpbin.org
+    - id: var-countries_url
+      name: countries_url
+      kind: static
+      value: https://countries.trevorblades.com/
+    - id: var-placeholder_url
+      name: placeholder_url
+      kind: static
+      value: https://graphqlplaceholder.vercel.app/graphql
+    - id: var-echo_url
+      name: echo_url
+      kind: static
+      value: https://postman-echo.com
+    - id: var-page_size
+      name: page_size
+      kind: static
+      value: "5"
+    - id: var-offset
+      name: offset
+      kind: static
+      value: "0"
+    - id: var-pokemon
+      name: pokemon
+      kind: static
+      value: pikachu
+    - id: var-country_code
+      name: country_code
+      kind: static
+      value: UA
+    - id: var-continent_code
+      name: continent_code
+      kind: static
+      value: EU
+    - id: var-product_id
+      name: product_id
+      kind: static
+      value: "1"
+    - id: var-search_term
+      name: search_term
+      kind: static
+      value: phone
+    - id: var-demo-token
+      name: demo_token
+      sensitive: true
+      kind: static
+      secretRef: purr/bc6ac784-16ee-4dfa-a015-ff5f904bedba/credentials/variables/var-demo-token
+    - id: var-demo-password
+      name: demo_password
+      sensitive: true
+      kind: static
+      secretRef: purr/bc6ac784-16ee-4dfa-a015-ff5f904bedba/credentials/variables/var-demo-password
+    - id: var-selected-product
+      name: selected_product_id
+      kind: dynamic-request
+      documentId: dummy-search
+      expression: $.products[0].id
+      language: jsonpath
+      refresh: cache
+      cacheTtlSeconds: 120
+      environment:
+        type: current

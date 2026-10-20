@@ -1,0 +1,35 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-form
+name: 03 URL encoded form
+folderId: http
+url: "{{httpbin_url}}/post"
+method: POST
+documentation: |-
+  # 03 URL encoded form
+
+  Compare application/x-www-form-urlencoded with JSON.
+
+  ## Expected result
+
+  HTTP 200; form contains name and message.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+body:
+  type: url-encoded
+  fields:
+    - name: name
+      value: Purr learner
+    - name: message
+      value: spaces & symbols = encoded
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

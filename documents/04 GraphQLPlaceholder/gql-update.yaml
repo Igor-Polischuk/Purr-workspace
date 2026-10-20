@@ -1,0 +1,45 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-update
+name: 05 Update post simulated
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 05 Update post simulated
+
+  Send a small simulated update. The public fixture is not a durable database.
+
+  ## Expected result
+
+  A data.updatePost result for the requested ID.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    mutation Update($id: Int!, $post: UpdatePostInput!) {
+      updatePost(postId: $id, post: $post) {
+        id
+        title
+      } 
+    }
+  variables: |-
+    {
+      "id": 1,
+      "post": {
+        "title": "Purr edited example"
+      }
+    }
+  operation: Update
+  schemaId: schema-placeholder

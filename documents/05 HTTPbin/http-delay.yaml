@@ -1,0 +1,28 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: http-delay
+name: 15 Delayed response
+folderId: http
+url: "{{httpbin_url}}/delay/2"
+method: GET
+documentation: |-
+  # 15 Delayed response
+
+  Inspect timing. You may cancel the request while it is in progress.
+
+  ## Expected result
+
+  HTTP 200 after a service-side delay, plus network time.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: http

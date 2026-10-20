@@ -1,0 +1,51 @@
+purr: 2
+settings:
+  timeoutMs: 20000
+  storeCookies: false
+id: gql-user
+name: 02 User by ID
+folderId: placeholder
+url: "{{placeholder_url}}"
+method: POST
+documentation: |-
+  # 02 User by ID
+
+  Change the JSON variable id to another integer. Quotes around a numeric value are not equivalent to an Int.
+
+  ## Expected result
+
+  HTTP 200; data.userById includes nested address and company.
+
+  ## Notes
+
+  Use Send once and inspect the response body, headers and timeline. Public demo services can be temporarily unavailable; a gateway error is not the expected application result. Do not use real credentials or personal data.
+auth:
+  type: none
+overrides:
+  headers: false
+  auth: false
+  cookies: false
+kind: graphql
+graphql:
+  query: |-
+    query User($id: Int!) {
+      userById(id: $id) {
+        id
+        name
+        address {
+          city
+          geo {
+            lat
+            lng
+          }
+        }
+        company {
+          name
+        }
+      }
+    }
+  variables: |-
+    {
+      "id": 1
+    }
+  schemaId: schema-placeholder
